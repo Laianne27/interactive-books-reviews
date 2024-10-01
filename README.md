@@ -37,49 +37,29 @@ Antes de rodar o projeto, você precisará instalar as seguintes bibliotecas:
 
 [Pandas](https://pandas.pydata.org/docs/) - Para manipulação e análise de dados.
 
-
 [Plotly](https://plotly.com/graphing-libraries/)  - Para visualizações interativas e gráficos.
-
-[Pyngrok](https://pyngrok.readthedocs.io/en/latest/index.html#) - Para expor o servidor local (Streamlit) através de um túnel na web.
 
 No Google Colab, você pode instalar essas bibliotecas executando o comando:
 
-```!pip install streamlit pandas plotly pyngrok```
+```!pip install streamlit pandas plotly```
 
-Além disso, é necessário o uso do ```ngrok``` para expor a aplicação no Google Colab, pois o Streamlit roda em localhost e precisa de um túnel para ser acessado na web.
-## Google Colab
+Para rodar o projeto localmente no VS Code, você precisará ter o Python instalado e utilizar o terminal integrado para instalar as bibliotecas via pip. Siga os passos abaixo:
 
-**1. Carregar os arquivos CSV:**
+1. Abra o VS Code e navegue até o seu projeto.
 
-```customer reviews.csv```: Contém as avaliações (reviews) dos livros.
+2. Abra o terminal integrado no VS Code:
+- No menu superior, vá em Terminal > New Terminal.
+3. Instale as bibliotecas necessárias com o comando abaixo no terminal:
+```pip install streamlit pandas plotly```
 
-```Top-100 Trending Books.csv```: Contém os dados dos 100 livros mais populares (preço, ano de publicação, rating, etc.).
+4. Rodar a aplicação:
 
-Você pode carregar esses arquivos no Google Colab usando a interface de upload ou adicionar seus caminhos diretamente no código.
+- Para iniciar o Streamlit e rodar sua aplicação, execute o seguinte comando no terminal do VS Code:
+```streamlit run app.py```
 
-**2. Escreva o código da aplicação no Colab:**
+Isso abrirá a aplicação no navegador padrão. O Streamlit rodará localmente na porta 8501 (http://localhost:8501).
 
-Copie e cole o código fornecido no arquivo app.py no Colab e execute:
-
-```%%writefile app.py```
-
-**3. Rodar o Streamlit:**
-Para rodar a aplicação, utilize o seguinte comando no Colab:
-
-```!streamlit run app.py &> /dev/null &```
-
-**4. Conectar o ngrok:**
-
-Abra o ngrok para acessar a aplicação no navegador:
-
-```
-from pyngrok import ngrok  
-public_url = ngrok.connect(port='8501') 
-print(public_url)
-```
-
-O link exibido (```public_url```) será a URL para acessar a aplicação rodando no Google Colab.
-    
+Além disso, a aplicação está hospedada no Render, através do link https://interactive-books-reviews.onrender.com/ facilitando o acesso a partir de qualquer navegador sem a necessidade de rodar localmente. O Render oferece um serviço de hospedagem de aplicações web, garantindo que o projeto esteja sempre acessível na web, sem a necessidade de configurações extras de túnel ou servidor local.
 ## Estrutura
 
 ```bash
@@ -115,7 +95,6 @@ A navegação entre as duas páginas é feita através de um menu lateral (sideb
 
 [Plotly](https://plotly.com/graphing-libraries/)  - Para visualizações interativas e gráficos.
 
-[Pyngrok](https://pyngrok.readthedocs.io/en/latest/index.html#) - Para expor o servidor local (Streamlit) através de um túnel na web.
 ## Melhorias
 
 - Adicionar uma terceira página com mais estatísticas sobre as reviews (ex: análise de sentimentos).
