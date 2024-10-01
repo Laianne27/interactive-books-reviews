@@ -12,8 +12,9 @@ def pagina1():
     st.title('Top-100 Trending Books')
 
     # Carregando os datasets de reviews e os 100 livros mais populares
-    df_reviews = pd.read_csv("/content/customer reviews.csv")
-    df_top100_books = pd.read_csv("/content/Top-100 Trending Books.csv")
+    df_top100_books = pd.read_csv("Top-100 Trending Books.csv")
+
+    df_reviews = pd.read_csv("customer reviews.csv")
 
     # Calculando os valores mínimo e máximo de preços dos livros
     price_max = df_top100_books["book price"].max()
@@ -21,7 +22,7 @@ def pagina1():
 
     # Slider na barra lateral para permitir ao usuário selecionar uma faixa de preço
     # O valor máximo inicial do slider é definido como o preço máximo dos livros
-    max_price = st.sidebar.slider("Price Range", price_min, 
+    max_price = st.sidebar.slider("Price Range", price_min,
                           price_max, price_max, format="$%f")
 
     # Filtrando o dataframe para exibir apenas os livros com preço abaixo do valor selecionado
@@ -44,11 +45,12 @@ def pagina1():
 def pagina2():
 
     # Carregando os datasets de reviews e os 100 livros mais populares
-    df_reviews = pd.read_csv("/content/customer reviews.csv")
-    df_top100_books = pd.read_csv("/content/Top-100 Trending Books.csv")
+    df_top100_books = pd.read_csv("Top-100 Trending Books.csv")
+
+    df_reviews = pd.read_csv("customer reviews.csv")
 
     # Obtendo a lista de livros únicos para exibir no selectbox (caixa de seleção)
-    books = df_top100_books["book title"].unique()[::-1]  # Invertendo a lista para exibir na ordem reversa
+    books = df_top100_books["book title"].unique()
 
     # Selectbox na barra lateral para selecionar um livro
     book = st.sidebar.selectbox("Books", books)
